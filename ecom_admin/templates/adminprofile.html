@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="keywords" content="" />
+  <meta name="author" content="" />
+  <meta name="robots" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GetSkills  : GetSkills Online Learning Admin Bootstrap 5 Template" />
+  <meta property="og:title" content="GetSkills  : GetSkills Online Learning  Admin Bootstrap 5 Template" />
+  <meta property="og:description" content="GetSkills  : GetSkills Online Learning  Admin Bootstrap 5 Template" />
+  <meta property="og:image" content="https://getskills.dexignzone.com/xhtml/social-image.png" />
+  <meta name="format-detection" content="telephone=no">
+  <!-- PAGE TITLE HERE -->
+  <title>Nirlip Sports and Fitness Hub</title>
+  <!-- FAVICONS ICON -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Datatable -->
+  <link href="../static/vendor2/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png" />
+  <link href="../static/vendor2/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  <link href="../static/vendor2/swiper/css/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Style css -->
+  <link href="../static/css2/style.css" rel="stylesheet">
+</head>
+
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="color_1"
+  data-headerbg="color_1" data-sidebar-style="full" data-sibebarbg="color_1" data-sidebar-position="fixed"
+  data-header-position="fixed" data-container="wide" direction="ltr" data-primary="color_1" data-secondary="color_1">
+  <!--*******************
+        Preloader start
+    ********************-->
+  <div id="preloader">
+    <div class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!--*******************
+        Preloader end
+    ********************-->
+  <!--**********************************
+        Main wrapper start
+    ***********************************-->
+  <div id="main-wrapper">
+    <!--**********************************
+            Nav header start
+        ***********************************-->
+    <div class="nav-header">
+      <a href="/adminindex/" class="brand-logo">
+        <img src="../static/images2/logo.png">
+
+      </a>
+      <div class="nav-control">
+        <div class="hamburger">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+      </div>
+    </div>
+    <!--**********************************
+            Nav header end
+        ***********************************-->
+    <!--**********************************
+            Header start
+        ***********************************-->
+    <div class="header">
+      <div class="header-content">
+        <nav class="navbar navbar-expand">
+          <div class="collapse navbar-collapse justify-content-between">
+            <div class="header-left">
+              <div class="dashboard_bar"> Dashboard </div>
+            </div>
+            <div class="navbar-nav header-right">
+              <div class="nav-item d-flex align-items-center">
+                <div class="input-group search-area mr-2">
+                  <span class="input-group-text">
+                    <a href="javascript:void(0)">
+                      <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M27.414 24.586L22.337 19.509C23.386 17.928 24 16.035 24 14C24 8.486 19.514 4 14 4C8.486 4 4 8.486 4 14C4 19.514 8.486 24 14 24C16.035 24 17.928 23.386 19.509 22.337L24.586 27.414C25.366 28.195 26.634 28.195 27.414 27.414C28.195 26.633 28.195 25.367 27.414 24.586ZM7 14C7 10.14 10.14 7 14 7C17.86 7 21 10.14 21 14C21 17.86 17.86 21 14 21C10.14 21 7 17.86 7 14Z"
+                          fill="var(--secondary)" />
+                      </svg>
+                    </a>
+                  </span>
+                  <input type="text" class="form-control" placeholder="Search here...">
+                </div>
+
+              </div>
+              <div class="dlab-side-menu">
+                <div class="search-coundry d-flex align-items-center">
+                  <select class="default-select dashboard-select image-select">
+                    <option data-display="Eng">English</option>
+                    <option data-display="Eng">Hindi</option>
+                  </select>
+                </div>
+                <div class="sidebar-social-link ">
+                  <ul>
+                    <li class="nav-item dropdown notification_dropdown">
+                      <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                        <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M18.7071 8.56414C18.7071 9.74035 19.039 10.4336 19.7695 11.2325C20.3231 11.8211 20.5 12.5766 20.5 13.3963C20.5 14.215 20.2128 14.9923 19.6373 15.6233C18.884 16.3798 17.8215 16.8627 16.7372 16.9466C15.1659 17.0721 13.5937 17.1777 12.0005 17.1777C10.4063 17.1777 8.83505 17.1145 7.26375 16.9466C6.17846 16.8627 5.11602 16.3798 4.36367 15.6233C3.78822 14.9923 3.5 14.215 3.5 13.3963C3.5 12.5766 3.6779 11.8211 4.23049 11.2325C4.98384 10.4336 5.29392 9.74035 5.29392 8.56414V8.16515C5.29392 6.58996 5.71333 5.55995 6.577 4.55164C7.86106 3.08114 9.91935 2.19922 11.9558 2.19922H12.0452C14.1254 2.19922 16.2502 3.12359 17.5125 4.65728C18.3314 5.64484 18.7071 6.63146 18.7071 8.16515V8.56414ZM9.07367 19.1136C9.07367 18.642 9.53582 18.426 9.96318 18.3336C10.4631 18.2345 13.5093 18.2345 14.0092 18.3336C14.4366 18.426 14.8987 18.642 14.8987 19.1136C14.8738 19.5626 14.5926 19.9606 14.204 20.2134C13.7001 20.5813 13.1088 20.8143 12.4906 20.8982C12.1487 20.9397 11.8128 20.9407 11.4828 20.8982C10.8636 20.8143 10.2723 20.5813 9.76938 20.2125C9.37978 19.9606 9.09852 19.5626 9.07367 19.1136Z"
+                            fill="#130F26" />
+                        </svg>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <div id="DZ_W_Notification1" class="widget-media dlab-scroll p-3" style="height:380px;">
+                          <ul class="timeline">
+                            <li>
+                              <div class="timeline-panel">
+                                <div class="media me-2 media-info"> KG </div>
+                                <div class="media-body">
+                                  <h6 class="mb-1">Resport created successfully</h6>
+                                  <small class="d-block">29 July 2020 - 02:26 PM</small>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <a class="all-notification" href="javascript:void(0);">See all notifications <i
+                            class="ti-arrow-end"></i>
+                        </a>
+                      </div>
+                    </li>
+                    <li class="nav-item dropdown notification_dropdown">
+                      <a class="nav-link bell-link " href="javascript:void(0);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.9394 3.57129C18.2804 3.57129 19.5704 4.06765 20.5194 4.95828C21.4694 5.84704 22.0004 7.04579 22.0004 8.30073V15.6993C22.0004 18.3122 19.7304 20.4287 16.9394 20.4287H7.0604C4.2694 20.4287 2.0004 18.3122 2.0004 15.6993V8.30073C2.0004 5.68783 4.2594 3.57129 7.0604 3.57129H16.9394ZM18.5304 9.69615L18.6104 9.62123C18.8494 9.34964 18.8494 8.9563 18.5994 8.68471C18.4604 8.54517 18.2694 8.45994 18.0704 8.44121C17.8604 8.43091 17.6604 8.4974 17.5094 8.62852L13.0004 12C12.4204 12.4505 11.5894 12.4505 11.0004 12L6.5004 8.62852C6.1894 8.41312 5.7594 8.44121 5.5004 8.69407C5.2304 8.94693 5.2004 9.34964 5.4294 9.6306L5.5604 9.75234L10.1104 13.077C10.6704 13.4891 11.3494 13.7138 12.0604 13.7138C12.7694 13.7138 13.4604 13.4891 14.0194 13.077L18.5304 9.69615Z"
+                            fill="#130F26" />
+                        </svg>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <ul>
+                  {% for admin in user %}
+                  {% if admin.id == request.session['user_id'] %}
+                  <li class="nav-item dropdown header-profile mt-2">
+                    <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                      <img src="{{url}}/{{admin.admin_image}}" width="20" alt="" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                      
+                      <a href="#" class="dropdown-item ai-icon">
+                        <i class="bi-cast text-secondary"></i>
+                        <span class="ms-2">{{ admin.name}} </span>
+                      </a>
+                      {% endif %}
+                      {% endfor %}
+
+                      <a href="/adminlogout/" class="dropdown-item ai-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18"
+                          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                          <polyline points="16 17 21 12 16 7"></polyline>
+                          <line x1="21" y1="12" x2="9" y2="12"></line>
+                        </svg>
+                        <span class="ms-2">Logout </span>
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+    <!--**********************************
+            Sidebar start
+        ***********************************-->
+    <div class="dlabnav">
+      <div class="dlabnav-scroll">
+        <ul class="metismenu" id="menu">
+          <li>
+            <a href="/adminindex/" aria-expanded="false">
+              <i class="bi bi-grid"></i>
+              <span class="nav-text">Dashboard</span>
+            </a>
+          </li>
+
+          <li class="nav-divider ng-scope mt-10" translate="">Clients</li>
+          <li class="mt-10">
+            <a href="/adminorders/" aria-expanded="false">
+              <i class="bi-basket"></i>
+              <span class="nav-text">Orders</span>
+            </a>
+          </li>
+
+          <li><a href="/adminregistrations/" aria-expanded="false">
+              <i class="bi-binoculars-fill"></i><span class="nav-text">Registrations</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/adminenquiries/" aria-expanded="false">
+              <i class="bi bi-chat-left-text"></i>
+              <span class="nav-text"> Enquiries</span>
+            </a>
+          </li>
+
+
+          <li class="nav-divider ng-scope mt-10" translate="">Products</li>
+          <li class="mt-10">
+            <a href="/adminAllproducts/" aria-expanded="false">
+              <i class="bi-basket"></i>
+              <span class="nav-text">All Products</span>
+            </a>
+          </li>
+
+          <li><a href="/admincategory/" aria-expanded="false">
+              <i class="bi-binoculars-fill"></i><span class="nav-text">Add Category</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/adminSubCategory/" aria-expanded="false">
+              <i class="bi bi-chat-left-text"></i>
+              <span class="nav-text"> Add SubCategory</span>
+            </a>
+          </li>
+          <li>
+            <a href="/adminAddproducts/" aria-expanded="false">
+              <i class="bi bi-chat-left-text"></i>
+              <span class="nav-text"> Add Products</span>
+            </a>
+          </li>
+
+
+          <li class="nav-divider ng-scope mt-10" translate="">More</li>
+          <li>
+            <a href="/adminprofile/" aria-expanded="false">
+              <i class="bi-person-lines-fill"></i>
+              <span class="nav-text">My Profile</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/support/" aria-expanded="false">
+              <i class="bi-info-square"></i>
+              <span class="nav-text">Help & Support</span>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+    <!--**********************************
+            Sidebar end
+        ***********************************-->
+    <!--**********************************
+            Content body start
+        ***********************************-->
+    <div class="content-body">
+      <!-- row -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xl-8 col-xxl-8">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-sm-12">
+                <div class="card">
+                  <div class="card-header d-flex justify-content-between align-items-center">
+                    <h4 class="m-0">Admin Profile</h4>
+                    <a href="/editprofile/{{ request.session['user_id']}}" class="btn btn-success btn-xs"
+                      data-bs-toggle="" data-bs-target=""><i class="bi-person-plus"></i>
+                      Update</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% for admin in user %}
+          {% if admin.id == request.session['user_id'] %}
+          <div class="col-xl-4 col-xxl-4">
+            <div class="card instructors-box h-auto">
+              <div class="card-body text-center pb-3">
+                <div class="instructors-media  mt-3">
+
+                  <img src="{{url}}/{{admin.admin_image}}" alt=""><br>
+
+                  <strong>Status</strong>
+                  <img src="images/statuslive.gif" alt="" style="width:10%; height:auto;">
+                  <br>
+                  <h4 class="mt-2 mb-0"><strong>{{ admin.name}}</strong></h4>
+                  <!-- <h6 class="text-secondary">HR Admin</h6> -->
+                  <div class="instructors-media-info mt-4">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item d-flex px-0 justify-content-between">
+                        <strong>Admin ID</strong><br>
+                        <span class="text-black fs-12">{{admin.id}}</span>
+                      </li>
+
+                      <li class="list-group-item d-flex px-0 justify-content-between">
+                        <strong>Contact no.</strong>
+                        <span class="text-black fs-12">(+91) {{admin.phone}}</span>
+                      </li>
+                      <li class="list-group-item d-flex px-0 justify-content-between">
+                        <strong>Email</strong>
+                        <span class="text-black fs-12">{{admin.email}}</span>
+                      </li>
+                      <li class="list-group-item d-flex px-0 justify-content-between">
+                        <strong>Address</strong>
+                        <span class="text-black fs-12">{{admin.address}}</span>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--**********************************
+            Content body end
+        ***********************************-->
+
+  <!--**********************************
+           Support ticket button start
+        ***********************************-->
+  <!--**********************************
+           Support ticket button end
+        ***********************************-->
+  </div>
+  <!--**********************************
+        Main wrapper end
+    ***********************************-->
+  <!--**********************************
+        Scripts
+    ***********************************-->
+  <!-- Required vendors -->
+  <script src="../static/vendor2/global/global.min.js"></script>
+  <script src="../static/vendor2/chart.js/Chart.bundle.min.js"></script>
+  <script src="../static/vendor2/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+  <!-- Apex Chart -->
+  <script src="../static/vendor2/apexchart/apexchart.js"></script>
+  <script src="../static/vendor2/bootstrap-datetimepicker/js/moment.js"></script>
+  <script src="../static/vendor2/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+  <!-- Dashboard 1 -->
+  <script src="../static/js2/dashboard/dashboard-1.js"></script>
+  <!-- Datatable -->
+  <script src="../static/vendor2/datatables/js/jquery.dataTables.min.js"></script>
+  <script src="../static/js2/plugins-init/datatables.init.js"></script>
+  <script src="../static/js2/custom.js"></script>
+  <script src="../static/js2/dlabnav-init.js"></script>
+  <script>
+    $(function () {
+      $('#datetimepicker').datetimepicker({
+        inline: true,
+      });
+    });
+    $(document).ready(function () {
+      $(".booking-calender .fa.fa-clock-o").removeClass(this);
+      $(".booking-calender .fa.fa-clock-o").addClass('fa-clock');
+    });
+  </script>
+</body>
+
+</html>

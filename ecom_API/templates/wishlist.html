@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>Update Quantity Shopping Cart Example</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="../static/css/style.css">
+	<!-- Demo CSS (No need to include it into your project) -->
+	<link rel="stylesheet" href="../static/css/demo.css">
+
+	<link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/ion.rangeSlider.skinFlat.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/ion.rangeSlider.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/nouislider.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/nice-select.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/owl.carousel.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/bootstrap.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/themify-icons.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/font-awesome.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/linearicons.css') }}" rel="stylesheet">
+  
+  </head>
+  <body>
+	<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="/"><img src="../static/img/logo.png" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="/category/">category</a></li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Shop</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="/checkout/">Product Checkout</a></li>
+									<li class="nav-item"><a class="nav-link" href="/confirmation/">Confirmation</a></li>
+									<li class="nav-item"><a class="nav-link" href="/tracking/">Tracking</a></li>
+								</ul>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="/cart/">cart</a></li>
+							{% if request.session['user_name'] %}
+						    <li class="nav-item submenu dropdown">
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">{{ request.session['user_name']}}</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" >{{ request.session['user_phone']}} </a></li>
+									<li class="nav-item"><a class="nav-link" >{{ request.session['user_email']}} </a></li>
+
+									<li class="nav-item"><a class="nav-link" href="/logout/">logout</a></li>
+								</ul>
+							</li>
+
+							
+							{% else %}
+						    <li class="nav-item active"><a class="nav-link" href="/login/">Login/Register</a></li>
+
+							{% endif %}
+							
+						</ul>
+						
+					</div>
+				</div>
+			</nav>
+		</div>
+
+	</header>
+	<!-- End Header Area -->
+	
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                <div class="col-first">
+                    <h1>Shopping Wishlist</h1>
+                    <nav class="d-flex align-items-center">
+                        <a href="/">Home<span class="lnr lnr-arrow-right"></span></a>
+                        <a href="/wishlist/">Wishlist</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
+    <main>
+	<div class="container">
+		<section id="cart"> 
+
+            {% for p in add_to_wishlist %}
+			{% if request.session['user_id']== p.user_id %}
+			<article class="product">
+				<header>
+					<a class="">
+						<img  src="{{url}}/{{p.product_d.product_image}}" alt="" >
+
+
+						<h3>{{p.product_d.name}}</h3>
+					</a>
+				</header>
+
+				<div class="content">
+
+					<h1>{{p.product_d.name}}</h1>
+
+				</div>
+                
+				<footer class="content">
+					
+					<span class="qt-minus" id="rqt" >-</span>
+					<span class="qt">0</span>
+					
+					<span class="qt-plus" id="rqt" >+</span>
+					
+
+					<h2 class="full-price" >
+						{{p.product_d.discountprice}}
+					</h2>
+					<h2 class="price" >
+						{{p.product_d.discountprice}}
+					</h2>
+					<h2 class="price" >
+						{{qt}}
+					</h2>
+				</footer>
+
+				<!-- var y = parseInt(document.getElementById("rqt").value) -->
+			</article>
+			<a href="/delete_cartitem/{{p.id}}" type="submit" class="btn btn-danger"
+					data-bs-target="#delete" onclick="return confirm('Are you sure you want to remove this?') ">
+					Remove Product
+		    </a>
+			{% endif %}
+            {% endfor %}
+		</section>
+	</div>
+	<footer id="site-footer">
+		<form id="form" action="/order/" method="post" >
+		<div class="container clearfix">
+			<input type="hidden" name="orderuser_id" value={{ request.session['user_id']}}>
+
+			<div class="left">
+				<h2 class="subtotal">Subtotal: <span id="spanInput2"></span>Rs</h2>
+				<input type="hidden" name="subtotal" id="hiddenInput2">
+				<h3 class="tax">Taxes (5%): <span></span>Rs</h3>
+				<h3 class="shipping">Shipping: <span>50.00</span>Rs</h3>
+				<input type="hidden" name="shipping" value="50">
+			</div>
+			<div class="right">
+				<h1 class="total">Total: <span id="spanInput3"></span>Rs</h1>
+				<input type="hidden" name="total" id="hiddenInput3">
+
+				
+				<button class="btn" type="submit" >Proceed to checkout</button>
+			</div>
+		</div>
+	</footer>
+</form>
+ </main>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script  src="../static/js/script.js"></script> 
+<script>
+	document.getElementById("form").addEventListener("submit", function(event) {
+		event.preventDefault();
+		document.getElementById("hiddenInput2").value = document.getElementById("spanInput2").innerText;
+		document.getElementById("hiddenInput3").value = document.getElementById("spanInput3").innerText;
+		document.getElementById("form").submit();
+	  });
+</script>
+      
+  </body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="../static/img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="CodePixar">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Karma Shop</title>
+
+    <!--
+            CSS
+            ============================================= -->
+    <link rel="stylesheet" href="../static/css/linearicons.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.css">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/themify-icons.css">
+    <link rel="stylesheet" href="../static/css/nice-select.css">
+    <link rel="stylesheet" href="../static/css/nouislider.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+
+    <link href="{{ url_for('static', path='/css/main.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/ion.rangeSlider.skinFlat.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/ion.rangeSlider.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/nouislider.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/nice-select.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/owl.carousel.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/bootstrap.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/themify-icons.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/font-awesome.min.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', path='/css/linearicons.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Start Header Area -->
+    <header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="/"><img src="../static/img/logo.png" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="/category/">category</a></li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Shop</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="/checkout/">Product Checkout</a></li>
+									<li class="nav-item"><a class="nav-link" href="/confirmation/">Confirmation</a></li>
+									<li class="nav-item"><a class="nav-link" href="/tracking/">Tracking</a></li>
+								</ul>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="/cart/">cart</a></li>
+							{% if request.session['user_name'] %}
+						    <li class="nav-item submenu dropdown">
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">{{ request.session['user_name']}}</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" >{{ request.session['user_phone']}} </a></li>
+									<li class="nav-item"><a class="nav-link" >{{ request.session['user_email']}} </a></li>
+
+									<li class="nav-item"><a class="nav-link" href="/logout/">logout</a></li>
+								</ul>
+							</li>
+
+							
+							{% else %}
+						    <li class="nav-item active"><a class="nav-link" href="/login/">Login/Register</a></li>
+
+							{% endif %}
+							
+						</ul>
+						
+					</div>
+				</div>
+			</nav>
+		</div>
+
+	</header>
+	<!-- End Header Area -->
+
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                <div class="col-first">
+                    <h1>Shopping Cart</h1>
+                    <nav class="d-flex align-items-center">
+                        <a href="/">Home<span class="lnr lnr-arrow-right"></span></a>
+                        <a href="/category/">Cart</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
+
+    <!--================Cart Area =================-->
+    <section class="cart_area">
+        <div class="container">
+            <div class="cart_inner">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Product </th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Total</th>
+                                <th scope="col">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in add_to_cart %}
+                            <tr>
+                                <td>
+                                    <div class="media">
+                                        <div class="d-flex">
+                                            <img src="{{url}}/{{p.product_image}}" alt="">
+                                        </div>
+                                    
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class = "Total Price">
+                                    Rs:    <input type="text" id="a" value="{{p.pprice}}" readonly>
+                                    </div>
+                                </td>
+                                
+                                <td>
+                                    <input type="number" value="1" onclick="add()" id="myNumber" minlength="0" maxlength="10">
+                                    
+
+                                </td>
+                            
+                                <td>
+                                    <div>
+                                        <input type="text" id="c" placeholder="Total" readonly>
+                                    </div>
+                                </td>
+                               
+                               
+                                <td>
+                                    <div>
+                                        <a href="/delete_cartitem/{{p.id}}" type="submit" class="btn btn-danger shadow btn-xs sharp me-1"
+												data-bs-target="#delete">
+												<i class="fa fa-trash"></i>
+										</a>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                         {% endfor %}
+                        </tbody>
+                    </table>
+                    <table id="mytable">
+                        <tbody>
+                          <td class="cart-qty nostretch text-center">
+                            <div class="spinner" data-addclass-on-smdown="spinner-sm">
+                              <button type="button" class="btn btn-icon rounded-circle" id="btnMinus"><i data-feather="minus"></i>-</button>
+                              <input type="number" class="form-control" value="1" min="1" max="999" id="numberCol" />
+                              <button type="button" class="btn btn-icon rounded-circle" id="btnPlus"><i data-feather="plus"></i>+</button>
+                            </div>
+                          </td>
+                          <td class="cart-price text-right">
+                            <span class="roboto-condensed bold" id="primaryTotal"><span>Rs:</span><span class="price" data-price="@item.ItemPrice">@item.ItemPrice</span>
+                          </td>
+                        </tbody>
+                      </table>
+
+
+                    <div class="checkout_btn_inner d-flex align-items-center">
+                        <a class="gray_btn" href="#">Continue Shopping</a>
+                        <a class="primary-btn" href="/checkout/">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Cart Area =================-->
+
+    <!-- start footer Area -->
+    <footer class="footer-area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>About Us</h6>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+                            ut labore dolore
+                            magna aliqua.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4  col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Newsletter</h6>
+                        <p>Stay update with our latest</p>
+                        <div class="" id="mc_embed_signup">
+
+                            <form target="_blank" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                method="get" class="form-inline">
+
+                                <div class="d-flex flex-row">
+
+                                    <input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Enter Email '" required="" type="email">
+
+
+                                    <button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
+                                            aria-hidden="true"></i></button>
+                                    <div style="position: absolute; left: -5000px;">
+                                        <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+                                            type="text">
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4">
+													<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+									</div>
+                                </div>
+                                <div class="info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3  col-md-6 col-sm-6">
+                    <div class="single-footer-widget mail-chimp">
+                        <h6 class="mb-20">Instragram Feed</h6>
+                        <ul class="instafeed d-flex flex-wrap">
+                            <li><img src="../static/img/i1.jpg" alt=""></li>
+                            <li><img src="../static/img/i2.jpg" alt=""></li>
+                            <li><img src="../static/img/i3.jpg" alt=""></li>
+                            <li><img src="../static/img/i4.jpg" alt=""></li>
+                            <li><img src="../static/img/i5.jpg" alt=""></li>
+                            <li><img src="../static/img/i6.jpg" alt=""></li>
+                            <li><img src="../static/img/i7.jpg" alt=""></li>
+                            <li><img src="../static/img/i8.jpg" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget">
+                        <h6>Follow Us</h6>
+                        <p>Let us be social</p>
+                        <div class="footer-social d-flex align-items-center">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-behance"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
+                <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</p>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer Area -->
+    <script>
+        function myFunction() {
+          document.getElementById("myNumber").stepUp();
+        }
+    </script>
+    <script>
+        function add() {
+            var x = parseInt(document.getElementById("a").value);
+            var y = parseInt(document.getElementById("myNumber").value);
+            document.getElementById("c").value = x * y;
+          }
+    </script>
+    <script src="js/vendor/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+	 crossorigin="anonymous"></script>
+	<script src="../static/js/vendor/bootstrap.min.js"></script>
+	<script src="../static/js/jquery.ajaxchimp.min.js"></script>
+	<script src="../static/js/jquery.nice-select.min.js"></script>
+	<script src="../static/js/jquery.sticky.js"></script>
+    <script src="../static/js/nouislider.min.js"></script>
+	<script src="../static/js/jquery.magnific-popup.min.js"></script>
+	<script src="../static/js/owl.carousel.min.js"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="../static/js/gmaps.min.js"></script>
+	<script src="../static/js/main.js"></script>
+</body>
+
+</html>
+
+<main>
+	<div class="container">
+		<section id="cart"> 
+            {% for p in add_to_cart %}
+			<article class="product">
+				<header>
+					<a class="">
+						<img  src="{{url}}/{{p.product_d.product_image}}" alt="" >
+
+
+						<h3>{{p.product_d.name}}</h3>
+					</a>
+				</header>
+
+				<div class="content">
+
+					<h1>{{p.product_d.name}}</h1>
+					<a href="/delete_cartitem/{{p.id}}" type="submit" class="btn btn-danger"
+					data-bs-target="#delete">
+					Remove Product
+		            </a>
+
+				</div>
+
+				<footer class="content">
+					
+					<span class="qt-minus">-</span>
+					<span class="qt">1</span>
+					<span class="qt-plus">+</span>
+
+					<h2 class="full-price" >
+						{{p.product_d.discountprice}}
+					</h2>
+					<h2 class="price" >
+						{{p.product_d.discountprice}}
+					</h2>
+				</footer>
+			</article>
+            {% endfor %}
+		</section>
+	</div>
+	<footer id="site-footer">
+		<div class="container clearfix">
+
+			<div class="left">
+				<h2 class="subtotal">Subtotal: <span></span>Rs</h2>
+				<h3 class="tax">Taxes (5%): <span></span>Rs</h3>
+				<h3 class="shipping">Shipping: <span>50.00</span>Rs</h3>
+			</div>
+			<div class="right">
+				<h1 class="total">Total: <span></span>Rs</h1>
+				<a class="btn" href="/checkout/">Proceed to checkout</a>
+			</div>
+		</div>
+	</footer>
+ </main>

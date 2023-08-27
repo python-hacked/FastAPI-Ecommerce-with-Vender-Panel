@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+​
+<html lang="en">
+​
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="GetSkills  : GetSkills Online Learning Admin Bootstrap 5 Template" />
+    <meta property="og:title" content="GetSkills  : GetSkills Online Learning  Admin Bootstrap 5 Template" />
+    <meta property="og:description" content="GetSkills  : GetSkills Online Learning  Admin Bootstrap 5 Template" />
+    <meta property="og:image" content="https://getskills.dexignzone.com/xhtml/social-image.png" />
+    <meta name="format-detection" content="telephone=no">
+    <!-- PAGE TITLE HERE -->
+    <title>Nirlip Sports and Fitness Hub</title>
+    <!-- FAVICONS ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Datatable -->
+    <link href="../static/vendor2/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="../static/images/favicon.png" />
+    <link href="../static/vendor2/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="../static/vendor2/swiper/css/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Style css -->
+    <link href="../static/css2/style.css" rel="stylesheet">
+</head>
+​
+
+<body style="background-color:#e6b681;">
+    <div class="row">
+        <div class="col-lg-2 m-auto mt-5"></div>
+        <div class="col-lg-4 m-auto mt-5">
+            <img src="../static/images2/loginform.png" alt="" style="width:100%; height:auto; margin-top: 120px;">
+        </div>
+        ​
+        <div class="col-lg-4" style="margin-top: 120px;">
+            <div class="card rounded-3 effect2">
+
+                <div class="card-header">
+
+                    <h4 class="card-title">
+                        Please Register To Start Your Session</h4>
+                </div>
+                {% for message in get_flashed_messages(request) %}
+                <div class="alert alert-danger" role="alert">
+                    {{ message.message }}
+                </div>
+                {% endfor %}
+                <div class="card-body">
+                    <div class="basic-form">
+                        <form action="/adminregistrationpage/" method="post" id="my2Form"
+                            class="form-valide-with-icon needs-validation" enctype="multipart/form-data" novalidate>
+                            <div class="mb-3">
+                                <label class="text-label form-label" for="validationCustomUsername">Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"> <i class="fa fa-user" style="color:#ff9618;"></i>
+                                    </span>
+                                    <input type="text" name="name" class="form-control" id="validationCustomUsername"
+                                        placeholder="Enter a name.." required>
+                                        <p class="error-message"></p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-label form-label" for="validationCustomUsername">Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"> <i class="fa fa-user" style="color:#ff9618;"></i>
+                                    </span>
+                                    <input type="email" name="email" class="form-control" id="validationCustomUsername"
+                                        placeholder="Enter a email.." required>
+                                        <p class="error-message"></p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-label form-label" for="validationCustomUsername">Phone Number</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"> <i class="fa fa-user" style="color:#ff9618;"></i>
+                                    </span>
+                                    <input type="number" name="phone" class="form-control" id="validationCustomUsername"
+                                        placeholder="Enter a phone number.." required>
+                                        <p class="error-message"></p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-label form-label" for="validationCustomUsername">Address</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"> <i class="fa fa-user" style="color:#ff9618;"></i>
+                                    </span>
+                                    <input type="text" name="address" class="form-control" id="validationCustomUsername"
+                                        placeholder="Enter a address.." required>
+                                        <p class="error-message"></p>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="text-label form-label"for="validationCustomUsername">Upload Photo</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"> <i class="fa fa-user" style="color:#ff9618;"></i>
+                                    </span>
+                                    <input type="file" name="admin_image"
+                                    class="form-file-input form-control"
+                                        placeholder="Enter a phone number.." required>
+                                        <p class="error-message"></p>
+
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="text-label form-label" for="dlab-password">Password *</label>
+                                <div class="input-group transparent-append">
+                                    <span class="input-group-text"> <i class="fa fa-lock" style="color:#ff9618;"></i>
+                                    </span>
+                                    <input type="password" name="password" class="form-control" id="dlab-password"
+                                        placeholder="Choose a safe one.." required>
+                                    <span class="input-group-text show-pass">
+                                        <i class="fa fa-eye-slash"></i>
+                                        <i class="fa fa-eye"></i>
+                                    </span>
+                                    <p class="error-message"></p>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn me-2 btn-primary">Register</button>
+                            <!-- If not have an account? -->
+                            <!-- <a href="registration.html" class="btn btn-info">Register</a> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 m-auto mt-5"></div>
+        ​
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        ​
+        <!--**********************************
+            Footer end
+        ***********************************-->
+        ​
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+        ​
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+        ​
+        ​
+    </div>
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+    ​
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="./vendor/global/global.min.js"></script>
+    ​
+    <script src="vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    ​
+    <script src="./js/custom.js"></script>
+    <script src="./js/dlabnav-init.js"></script>
+    <script>
+		let my2Form = document.getElementById("my2Form");
+		my2Form.addEventListener("submit", function(event) {
+		  let inputFields = my2Form.getElementsByTagName("input");
+		  for (let i = 0; i < inputFields.length; i++) {
+			if (!inputFields[i].checkValidity()) {
+			  inputFields[i].style.border = "1px solid red";
+			  inputFields[i].nextElementSibling.innerHTML = "This field is required";
+			}
+		  }
+		  if (!my2Form.checkValidity()) {
+			event.preventDefault();
+		  }
+		});
+	  </script>
+    ​
+    ​
+    <script>
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>
+​
+
+</html>
